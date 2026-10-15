@@ -1,0 +1,24 @@
+services:
+  # 1. FastAPI Backend Service
+  - type: web
+    name: syncflow-backend
+    env: python
+    rootDirectory: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: GROQ_API_KEY
+        sync: false 
+
+  # 2. React Native / Expo Web Frontend Service
+  - type: web
+    name: syncflow-frontend
+    env: node
+    rootDirectory: frontend
+    buildCommand: npm install && npx expo export --platform web
+    startCommand: npx serve dist -l $PORT
+    envVars:
+      - key: NODE_VERSION
+        value: 18.16.0
