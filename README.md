@@ -25,8 +25,8 @@ SyncFlow utilizes a decoupled, modern cloud-native architecture hosted on Render
   * **Validation**: Pydantic for robust request/response payload parsing
   * **Middleware**: Global CORS middleware enabled for seamless cross-origin communication
 * **AI Engine**: 
-  * **Provider**: Groq API (`llama-3.3-70b-versatile`)
-  * **Capabilities**: Sub-second lightning-fast inference for multi-tone generation
+  * **Provider**: Groq API (using the OpenAI-compatible Python SDK)
+  * **Model**: `openai/gpt-oss-20b` for blazing-fast hardware acceleration and inference
 
 ---
 
@@ -47,10 +47,10 @@ SyncFlow utilizes a decoupled, modern cloud-native architecture hosted on Render
 ```text
 syncflow/
 ├── backend/
-│   ├── main.py          # FastAPI application & Groq integration
+│   ├── main.py          # FastAPI application & Groq / OpenAI-compatible client integration
 │   ├── requirements.txt # Python dependencies (fastapi, uvicorn, groq, python-dotenv)
 │   └── .env             # Environment variables (GROQ_API_KEY)
 └── frontend/
-    ├── App.js           # React Native Web UI & API fetch logic
+    ├── App.js           # React Native Web UI & live Render API fetch logic
     ├── package.json     # Node dependencies (expo, react-native-web)
     └── app.json         # Expo configuration
