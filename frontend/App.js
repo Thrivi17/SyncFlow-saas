@@ -22,7 +22,6 @@ export default function App() {
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Updated to point directly to your live Render backend URL
   const API_URL = 'https://syncflow-backend-bimz.onrender.com/api/repurpose';
 
   const handleGenerate = async () => {
